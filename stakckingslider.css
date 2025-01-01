@@ -1,5 +1,3 @@
-
-
 .slider {
   position: relative;
   height: 400px;
@@ -39,6 +37,7 @@
 .slider .slides li img {
   height: 100%;
   width: 100%;
+  object-fit: cover; /* Ensures compatibility for scaling in Safari */
   background-size: cover;
   background-position: center;
 }
@@ -49,6 +48,8 @@
   left: 15%;
   width: 70%;
   opacity: 0;
+  -webkit-transform: translate3d(0, 0, 0); /* Fix flickering in Safari */
+  transform: translate3d(0, 0, 0);
 }
 .slider .slides li .caption p {
   color: #e0e0e0;
@@ -84,11 +85,11 @@
   position: relative;
   width: 100%;
   height: 400px;
-  -webkit-perspective: 500px;
+  -webkit-perspective: 500px; /* Safari compatibility */
   perspective: 500px;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transform-origin: 0% 50%;
+  -webkit-transform-origin: 0% 50%; /* Fix perspective for Safari */
   transform-origin: 0% 50%;
 }
 .carousel.carousel-slider {
@@ -128,9 +129,12 @@
   position: absolute;
   top: 0;
   left: 0;
+  -webkit-transform: translate3d(0, 0, 0); /* Fix rendering in Safari */
+  transform: translate3d(0, 0, 0);
 }
 .carousel .carousel-item > img {
   width: 100%;
+  object-fit: cover; /* Ensures compatibility for image scaling in Safari */
 }
 .carousel .indicators {
   position: absolute;
